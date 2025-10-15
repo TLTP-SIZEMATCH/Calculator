@@ -96,10 +96,11 @@
   <script>
     function fmt(x) { return Number(x).toLocaleString(undefined, {maximumFractionDigits: 2}); }
     function compute(A, C) {
-      if (C >= 0.8*A && C <= 1.2*A) return {classification:"NEUTRAL",minDonor:0.8*A,maxDonor:1.2*A,note:"C is within ±20% of A"};
-      if (C > 1.2*A) return {classification:"OBSTRUCTIVE",minDonor:A,maxDonor:1.2*A,note:"C is more than 20% above A"};
-      if (C < 0.8*A && C >= 0.5*A) return {classification:"RESTRICTIVE",minDonor:0.8*A,maxDonor:A,note:"C is 20–50% below A"};
-      return {classification:"RESTRICTIVE – VERY SMALL",minDonor:0.7*A,maxDonor:2*C,note:"C is more than 50% below A"};
+      if (C >= 0.8*A && C <= 1.2*A) return {classification:"NEUTRAL",minDonor:0.8*A,maxDonor:1.2*A,note:"Act is within ±20% of Pred"};
+      if (C > 1.2*A) return {classification:"OBSTRUCTIVE",minDonor:A,maxDonor:1.2*A,note:"Act is more than 20% above Pred"};
+      if (C < 0.8*A && C >= 0.5*A) return {classification:"RESTRICTIVE",minDonor:0.8*A,maxDonor:A,note:"Act is 20–50% below Pred"};
+      return {classification:"RESTRICTIVE – VERY SMALL",minDonor:0.7*A,maxDonor:2*C,note:"Act is more than 50% below Pred
+        "};
     }
     const $ = id => document.getElementById(id);
     const run = () => {
